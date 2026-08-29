@@ -1,0 +1,2 @@
+# Zero external runtime dependencies required!
+# Aegis is built 100% ground-up using the Python standard library.

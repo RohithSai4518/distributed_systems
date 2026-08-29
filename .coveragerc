@@ -1,0 +1,9 @@
+[run]
+source = aegis
+omit =
+    tests/*
+    venv/*
+    .git/*
+
+[report]
+show_missing = True

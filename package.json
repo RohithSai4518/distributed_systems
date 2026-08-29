@@ -1,0 +1,27 @@
+{
+  "name": "aegis-distributed-systems",
+  "version": "1.0.0",
+  "description": "Ground-up, zero-dependency, fault-tolerant distributed consensus, storage, and transaction engine with interactive real-time cluster visualizer.",
+  "main": "main.py",
+  "scripts": {
+    "start": "python main.py cluster --nodes 3 --http-port 8080",
+    "build": "python -m compileall aegis/ web/",
+    "test": "python main.py test",
+    "chaos": "python main.py chaos",
+    "bench": "python main.py benchmark --workers 4 --ops-per-worker 100",
+    "cli": "python main.py cli"
+  },
+  "keywords": [
+    "distributed-systems",
+    "raft",
+    "lsm-tree",
+    "consensus",
+    "paxos",
+    "2pc",
+    "swim-gossip",
+    "mvcc",
+    "zero-dependency"
+  ],
+  "author": "Aegis Core Distributed Systems Team",
+  "private": true
+}

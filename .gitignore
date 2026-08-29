@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Runtime data
+data/
+data_chaos/
+*.sst
+*.wal
+*.log
+*.tmp
+*.zip
+
+# Virtualenv
+venv/
+env/
+.env
+
+# IDE
+.idea/
+.vscode/
