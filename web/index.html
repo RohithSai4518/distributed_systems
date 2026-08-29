@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Distributed Cluster Visualizer</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-group">
+                <div class="logo-icon">🛡️</div>
+                <div>
+                    <h1>AEGIS<span class="highlight">.DIST</span></h1>
+                    <p class="subtitle">Fault-Tolerant Distributed Consensus & LSM Engine</p>
+                </div>
+            </div>
+            <div class="header-status">
+                <div class="status-badge" id="cluster-health">
+                    <span class="pulse-dot"></span>
+                    <span id="health-text">Connecting to Cluster...</span>
+                </div>
+                <div class="active-term-badge" id="active-term">Term: -</div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid -->
+        <main class="dashboard-grid">
+            <!-- Left Column: Cluster Topology & Canvas Graph -->
+            <section class="card topology-section">
+                <div class="card-header">
+                    <h2>🌐 Real-Time Cluster Topology</h2>
+                    <span class="refresh-indicator" id="refresh-rate">Live 1.0s</span>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="topology-canvas"></canvas>
+                </div>
+                <div class="nodes-grid" id="nodes-container">
+                    <!-- Dynamic Node Cards Rendered Here -->
+                </div>
+            </section>
+
+            <!-- Right Column: Interactive KV & Chaos Console -->
+            <section class="controls-section">
+                <!-- KV Explorer Card -->
+                <div class="card kv-card">
+                    <div class="card-header">
+                        <h2>⚡ Key-Value Store Explorer</h2>
+                    </div>
+                    <div class="kv-form">
+                        <div class="input-row">
+                            <input type="text" id="kv-key" placeholder="Key (e.g. user:1001)" autocomplete="off">
+                            <input type="text" id="kv-value" placeholder="Value (e.g. {'name':'Alice'})" autocomplete="off">
+                        </div>
+                        <div class="button-row">
+                            <button class="btn btn-primary" id="btn-put">PUT</button>
+                            <button class="btn btn-secondary" id="btn-get">GET</button>
+                            <button class="btn btn-danger" id="btn-delete">DELETE</button>
+                            <button class="btn btn-outline" id="btn-scan">SCAN ALL</button>
+                        </div>
+                    </div>
+                    <div class="kv-console" id="kv-output">
+                        <span class="console-placeholder">// Output & query results will appear here...</span>
+                    </div>
+                </div>
+
+                <!-- Chaos Engineering Console -->
+                <div class="card chaos-card">
+                    <div class="card-header">
+                        <h2>💥 Chaos Injection Console</h2>
+                        <span class="badge-danger">Fault Simulator</span>
+                    </div>
+                    <p class="chaos-desc">Inject live distributed anomalies into running cluster to verify Raft fault tolerance and zero data loss.</p>
+                    <div class="chaos-actions">
+                        <button class="btn btn-chaos" id="btn-partition">
+                            <span>⚡</span> Split-Brain Partition
+                        </button>
+                        <button class="btn btn-chaos" id="btn-kill-leader">
+                            <span>💀</span> Crash Leader Node
+                        </button>
+                        <button class="btn btn-success" id="btn-heal">
+                            <span>🩹</span> Heal Network All
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Event Log Stream -->
+                <div class="card log-card">
+                    <div class="card-header">
+                        <h2>📜 Consensus & Transaction Log</h2>
+                        <button class="btn-sm" id="btn-clear-logs">Clear</button>
+                    </div>
+                    <div class="log-stream" id="log-stream">
+                        <div class="log-item info"><span class="log-ts">[00:00:00]</span> Visualizer initialized. Monitoring Raft consensus state.</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
